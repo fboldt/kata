@@ -16,5 +16,9 @@ class StringCalculator:
         result = 0
         for number in listOfNumbers:
             if number.strip() != "":
-                result += int(number)
+                numint = int(number)
+                if numint >= 0:
+                    result += numint
+                else:
+                    raise Exception("negatives not allowed")
         return result

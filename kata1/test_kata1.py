@@ -31,3 +31,8 @@ def test_many_numbers(numbers, result):
 def test_negative_number(): #5. exception "negatives not allowed"
     with pytest.raises(Exception):
         StringCalculator().add("2,-1")
+
+def test_multiple_negatives(): #6. show multiple negatives in exception message
+    with pytest.raises(Exception) as excinfo:
+        StringCalculator().add("-1,-2")
+    assert "negatives not allowed: -1, -2" in str(excinfo.value)
